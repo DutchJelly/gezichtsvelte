@@ -8,6 +8,7 @@
 
   $: article = $articles.find((x) => x.category === selectedSubject)
     ?.text as string;
+  $: subjects = $articles?.map((a) => a.category);
 </script>
 
 <main>
@@ -15,6 +16,7 @@
   <div class="flex flex-row gap-8 w-full p-4">
     <Subjects
       on:select={(e) => (selectedSubject = e.detail)}
+      {subjects}
       current={selectedSubject}
     />
     <Article {article} />

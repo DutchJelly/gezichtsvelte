@@ -1,9 +1,9 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import { supabase } from "../services/supabase";
-  import { articles } from "../store";
 
   export let current: string = undefined;
+  export let subjects: string[] = [];
 
   let searchValue: string = undefined;
   const dispatch = createEventDispatcher();
@@ -12,7 +12,6 @@
     subject.toLowerCase().includes(searchValue?.toLowerCase() ?? "")
   );
   $: trimmedSearchValue = searchValue?.replace(/[^a-z^A-Z^0-9]+/g, " ").trim();
-  $: subjects = $articles?.map((a) => a.category);
 
   async function handleSubjectAdd() {
     await supabase
