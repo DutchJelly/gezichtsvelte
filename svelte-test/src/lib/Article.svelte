@@ -3,9 +3,9 @@
   import Root from "typewriter-editor/lib/Root.svelte";
   import Toolbar from "typewriter-editor/lib/Toolbar.svelte";
 
-  const editor = ((window as any).editor = new Editor());
+  export let article: string = undefined;
 
-  console.log(editor);
+  const editor = ((window as any).editor = new Editor());
 </script>
 
 <article class="flex-1">
@@ -52,8 +52,7 @@
     <h1 class="pb-2 mb-8 border-b border-solid border-white">Angular</h1>
 
     <Root {editor} class="prose-lg prose-invert rounded">
-      <h2>Typewriter</h2>
-      <p>Hello world</p>
+      {article}
     </Root>
   </div>
 </article>
