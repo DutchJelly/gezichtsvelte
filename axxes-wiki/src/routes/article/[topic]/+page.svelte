@@ -1,6 +1,6 @@
 <script lang="ts">
   import { removeDraft } from "../../../shared/services/getDrafts";
-  import type { load } from "./+page.server";
+  import type { load } from "./+page";
   import SvelteMarkdown from "svelte-markdown";
   export let data: Awaited<ReturnType<typeof load>>;
 
