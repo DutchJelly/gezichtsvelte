@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { load } from "./+page.server";
+  import type { load } from "./+page";
   import SvelteMarkdown from "svelte-markdown";
   import {
     getDraft,
@@ -24,6 +24,7 @@
   let mounted = false;
 
   onMount(() => {
+    console.log("get new article");
     article = getDraft(data.topic) ?? data.article ?? undefined;
     mounted = true;
   });
@@ -65,13 +66,15 @@
       >
     </div>
   </div>
-  <section class="typo">
-    {#if sourceView}
-      <textarea rows={lineBreaks + 1} bind:value={article} />
-    {:else}
-      <SvelteMarkdown source={!!article ? article : noContent} />
-    {/if}
-  </section>
+  {#key data.topic}
+    <section class="typo">
+      {#if sourceView}
+        <textarea rows={lineBreaks + 1} bind:value={article} />
+      {:else}
+        <SvelteMarkdown source={!!article ? article : noContent} />
+      {/if}
+    </section>
+  {/key}
 </div>
 
 <style>
