@@ -1,0 +1,144 @@
+a.typo,
+.typo a {
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--secondary);
+    cursor: pointer;
+  }
+}
+
+h1.typo,
+.typo h1 {
+  scroll-margin: 5rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--primary);
+
+ 
+  margin-top: 1.5rem;
+  &:first-child {
+    margin-top: 0px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+h2.typo,
+.typo h2 {
+  scroll-margin: 5rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 0.5rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--primary);
+
+  margin-top: 1.5rem;
+  &:first-child {
+    margin-top: 0px;
+  }
+}
+
+h3.typo,
+.typo h3 {
+  scroll-margin: 5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--primary);
+
+  margin-top: 1.5rem;
+  &:first-child {
+    margin-top: 0px;
+  }
+}
+
+h4.typo,
+.typo h4 {
+  scroll-margin: 5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--primary);
+
+  margin-top: 1.5rem;
+  &:first-child {
+    margin-top: 0px;
+  }
+}
+
+p.typo,
+.typo p {
+  line-height: 1.75rem;
+  margin-top: 1.5rem;
+  &:first-child {
+    margin-top: 0px;
+  }
+}
+
+blockquote.typo,
+.typo blockquote {
+  margin-top: 1.5rem;
+  border-left-width: 2px;
+  border-left-style: solid;
+  padding-left: 1.5rem;
+  font-style: italic;
+}
+
+table.typo,
+.typo table {
+  width: 100%;
+}
+
+tr.typo,
+.typo tr {
+  margin: 0;
+  padding: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+
+  &:nth-child(even) {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+th.typo,
+.typo th {
+  border-width: 1px;
+  border-style: solid;
+  padding: 1rem 0.5rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+ul.typo,
+.typo ul {
+  margin: 1.5rem 0 1.5rem 1.5rem;
+  list-style-type: disc;
+
+  > li {
+    margin-top: 0.5rem;
+  }
+}
+
+code.typo,
+.typo code {
+  position: relative;
+  border-radius: 0.25rem;
+  background-color: var(--accent);
+  padding: 0.2rem 0.3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
