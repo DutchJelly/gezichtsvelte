@@ -1,16 +1,19 @@
-<script>
+<script lang="ts">
   import TopicsList from "../shared/components/TopicsList.svelte";
   import Header from "./Header.svelte";
   import "../shared/styles/reset.css";
   import "../shared/styles/globals.scss";
   import "../shared/styles/typography.scss";
+  import type { load } from "./+layout.server";
+
+  export let data: Awaited<ReturnType<typeof load>>;
 </script>
 
 <div class="app">
   <Header />
   <div class="content container">
     <aside>
-      <TopicsList />
+      <TopicsList topics={data.topics} />
     </aside>
     <main>
       <slot />
@@ -43,6 +46,8 @@
   main {
     padding: 3rem 0;
     flex: 1;
+    overflow-x: hidden;
+    word-wrap: break-word;
   }
 
   aside {

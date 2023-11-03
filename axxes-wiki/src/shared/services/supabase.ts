@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-
 export type Json =
   | string
   | number
@@ -15,17 +14,17 @@ export interface Database {
         Row: {
           category: string;
           id: number;
-          text: Json | null;
+          text: string | null;
         };
         Insert: {
           category: string;
           id?: number;
-          text?: Json | null;
+          text?: string | null;
         };
         Update: {
           category?: string;
           id?: number;
-          text?: Json | null;
+          text?: string | null;
         };
         Relationships: [];
       };

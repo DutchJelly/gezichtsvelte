@@ -1,22 +1,37 @@
-<script>
-  import NewTopicInput from "./NewTopicInput.svelte";
+<script lang="ts">
+  import NewTopicForm from "./NewTopicForm.svelte";
 
-  let topics = ["React", "Vue"];
+  export let topics: string[] = [];
+  let searchInput: string = "";
+
+  function filterTopics(filter: string) {
+    return topics.filter((topic) =>
+      topic.toLowerCase().includes(filter?.toLowerCase())
+    );
+  }
+
+  //We use client side filtering for now. Production apps should use server side filtering.
+  $: filteredTopics = filterTopics(searchInput);
 </script>
 
 <div>
   <h4 class="typo">Create new topic</h4>
-  <NewTopicInput />
+  <NewTopicForm
+    isValidTopic={(x) =>
+      !!topics.find((y) => y?.toLowerCase() !== x?.toLowerCase()) &&
+      x.length > 0}
+  />
   <h4 class="typo">Topics</h4>
   <input
     class="search"
     type="search"
+    bind:value={searchInput}
     placeholder="Show all (click to filter)"
   />
   <ul>
-    {#each topics as topic}
+    {#each filteredTopics as topic}
       <li>
-        <a>{topic}</a>
+        <a href={"/article/" + topic}>{topic}</a>
       </li>
     {/each}
   </ul>
