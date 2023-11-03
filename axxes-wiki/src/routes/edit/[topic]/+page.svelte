@@ -24,12 +24,15 @@
   let mounted = false;
 
   onMount(() => {
-    console.log("get new article");
-    article = getDraft(data.topic) ?? data.article ?? undefined;
     mounted = true;
   });
 
+  $: {
+    mounted && (article = getDraft(data.topic) ?? data.article ?? undefined);
+  }
+
   $: mounted && saveDraft(data.topic, article ?? "");
+
   $: lineBreaks = article?.match(/\n/g)?.length ?? 0;
 
   async function handlePublish() {
@@ -66,15 +69,17 @@
       >
     </div>
   </div>
-  {#key data.topic}
-    <section class="typo">
-      {#if sourceView}
-        <textarea rows={lineBreaks + 1} bind:value={article} />
-      {:else}
-        <SvelteMarkdown source={!!article ? article : noContent} />
-      {/if}
-    </section>
-  {/key}
+  <section class="typo">
+    {#if sourceView}
+      <textarea
+        rows={lineBreaks + 1}
+        on:change={(e) => (article = e.currentTarget.value)}
+        value={article ?? ""}
+      />
+    {:else}
+      <SvelteMarkdown source={!!article ? article : noContent} />
+    {/if}
+  </section>
 </div>
 
 <style>
