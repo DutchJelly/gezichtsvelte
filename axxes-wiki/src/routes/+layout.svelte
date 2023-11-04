@@ -4,7 +4,7 @@
   import "../shared/styles/reset.css";
   import "../shared/styles/globals.scss";
   import "../shared/styles/typography.scss";
-  import type { load } from "./+layout.server";
+  import type { load } from "./+layout";
 
   export let data: Awaited<ReturnType<typeof load>>;
 </script>

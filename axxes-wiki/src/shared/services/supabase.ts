@@ -44,7 +44,9 @@ export interface Database {
   };
 }
 
+const skipSupabase = Boolean(import.meta.env.VITE_SKIP_SUPABASE);
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+export const supabase =
+  !skipSupabase && createClient<Database>(supabaseUrl, supabaseAnonKey);

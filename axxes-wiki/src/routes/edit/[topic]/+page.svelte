@@ -6,7 +6,7 @@
     getDraft,
     removeDraft,
     saveDraft,
-  } from "../../../shared/services/getDrafts";
+  } from "../../../shared/services/drafts";
   import { saveArticle } from "../../../shared/services/saveArticle";
   import { goto } from "$app/navigation";
 
@@ -37,9 +37,9 @@
 
   async function handlePublish() {
     if (!article?.trim()) return;
-    const { error } = await saveArticle(data.topic, article);
+    const succes = await saveArticle(data.topic, article);
 
-    if (error) {
+    if (!succes) {
       alert("Something went wrong while publishing the article.");
       return;
     }

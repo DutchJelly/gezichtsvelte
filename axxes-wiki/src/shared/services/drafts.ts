@@ -1,5 +1,4 @@
 //Warn: this runs on client-side only
-
 export function getDraftTopics() {
   const drafts = localStorage.getItem("drafts");
 
