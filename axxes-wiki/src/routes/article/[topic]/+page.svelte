@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { removeDraft } from "../../../shared/services/drafts";
+  import { onMount } from "svelte";
+  import { getDraft, removeDraft } from "../../../shared/services/drafts";
   import type { load } from "./+page";
   import SvelteMarkdown from "svelte-markdown";
   export let data: Awaited<ReturnType<typeof load>>;
@@ -11,6 +12,13 @@
   
   No one filled in any information about this topic.
   `;
+
+  let mounted = false;
+  onMount(() => {
+    mounted = true;
+  });
+
+  $: hasDraft = mounted && Boolean(getDraft(data.topic));
 </script>
 
 <div>
@@ -23,11 +31,22 @@
       <button class="btn outline" on:click={() => (sourceView = !sourceView)}>
         {sourceView ? "view rendered" : "view source"}</button
       >
-      <a
-        href={"/edit/" + data.topic}
-        on:click={() => removeDraft(data.topic)}
-        class="btn primary">edit</a
-      >
+      {#if hasDraft}
+        <button class="btn outline" on:click={() => removeDraft(data.topic)}
+          >delete draft</button
+        >
+        <a
+          href={"/edit/" + data.topic}
+          on:click={() => removeDraft(data.topic)}
+          class="btn primary">edit draft</a
+        >
+      {:else}
+        <a
+          href={"/edit/" + data.topic}
+          on:click={() => removeDraft(data.topic)}
+          class="btn primary">edit</a
+        >
+      {/if}
     </div>
   </div>
   <section class="typo">

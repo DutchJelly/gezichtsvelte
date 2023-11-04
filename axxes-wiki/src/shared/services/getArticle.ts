@@ -18,6 +18,6 @@ export async function getArticle(topic: string) {
         console.log(res.error);
         return undefined;
       }
-      return res.data?.[0].text ?? undefined;
+      return res.data?.[0]?.text ?? undefined;
     });
 }

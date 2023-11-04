@@ -10,17 +10,18 @@
     );
   }
 
+  function isValidTopic(topic: string | undefined) {
+    topic = topic?.trim()?.toLowerCase() ?? "";
+    return !topics.find((x) => x.toLowerCase() === topic) && topic.length > 0;
+  }
+
   //We use client side filtering for now. Production apps should use server side filtering.
   $: filteredTopics = filterTopics(searchInput);
 </script>
 
 <div>
   <h4 class="typo">Create new topic</h4>
-  <NewTopicForm
-    isValidTopic={(x) =>
-      !!topics.find((y) => y?.toLowerCase() !== x?.toLowerCase()) &&
-      x.length > 0}
-  />
+  <NewTopicForm {isValidTopic} />
   <h4 class="typo">Topics</h4>
   <input
     class="search"
