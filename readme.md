@@ -8,7 +8,9 @@ Onderdelen die we aan gaan maken:
 - Article header buttons logic (article view page)
 - Voeg editor toe aan `edit/[topic]/+page.svelte`
 - Article header buttons logic (article edit page)
+- (extra) Refactor de gedupliceerde 'load' code
 - (extra) Prerendering
+- (extra) Sla topics op in store en subscribe aan supabase realtime database
 
 ## Layout.svelte
 
