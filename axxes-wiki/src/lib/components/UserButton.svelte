@@ -1,10 +1,6 @@
 <script>
-  import { user } from "$lib/store/user";
-  import { signin, signout } from "$lib/services/authentication";
+  //TODO add imports to login, logout and get user state
 </script>
 
-{#if $user}
-  <button class="btn outline" on:click={signout}>Logout</button>
-{:else}
-  <button class="btn outline" on:click={signin}>Login</button>
-{/if}
+<!-- TODO add logic to show correct button -->
+<button class="btn outline">TODO</button>

@@ -1,40 +1,31 @@
 <script lang="ts">
-  import NewTopicForm from "$lib/components/NewTopicForm.svelte";
+  //TODO add exported prop for topics
+  //TODO add reactive variable(s) for filter logic
 
-  export let topics: string[] = [];
-  let searchInput: string = "";
+  // function filterTopics(filter: string) {
+  //   return topics.filter((topic) =>
+  //     topic.toLowerCase().includes(filter?.toLowerCase())
+  //   );
+  // }
 
-  function filterTopics(filter: string) {
-    return topics.filter((topic) =>
-      topic.toLowerCase().includes(filter?.toLowerCase())
-    );
-  }
-
-  function isValidTopic(topic: string | undefined) {
-    topic = topic?.trim()?.toLowerCase() ?? "";
-    return !topics.find((x) => x.toLowerCase() === topic) && topic.length > 0;
-  }
-
-  //We use client side filtering for now. Production apps should use server side filtering.
-  $: filteredTopics = filterTopics(searchInput);
+  // function isValidTopic(topic: string | undefined) {
+  //   topic = topic?.trim()?.toLowerCase() ?? "";
+  //   return !topics.find((x) => x.toLowerCase() === topic) && topic.length > 0;
+  // }
 </script>
 
 <div>
   <h4 class="typo">Create new topic</h4>
-  <NewTopicForm {isValidTopic} />
+  <!-- TODO add new topic form -->
   <h4 class="typo">Topics</h4>
+  <!-- TODO add reactivity -->
   <input
     class="search"
     type="search"
-    bind:value={searchInput}
     placeholder="Show all (click to filter)"
   />
   <ul>
-    {#each filteredTopics as topic}
-      <li>
-        <a href={"/article/" + topic}>{topic}</a>
-      </li>
-    {/each}
+    <!-- TODO add topics list -->
   </ul>
 </div>
 
@@ -43,8 +34,6 @@
     width: 100%;
     height: 100%;
     border-radius: 0.25rem;
-    /* border-width: 1px; */
-    /* border-style: solid; */
     display: flex;
     flex-direction: column;
     gap: 1em;

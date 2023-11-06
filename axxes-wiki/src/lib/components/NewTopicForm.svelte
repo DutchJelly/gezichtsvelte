@@ -1,32 +1,21 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { scale } from "svelte/transition";
   export let isValidTopic: (topic: string) => boolean;
 
-  let value: string = "";
-
-  $: isValid = !value || isValidTopic(value);
+  //TODO create reactive variable for form validation
 </script>
 
-<div class:invalid={!isValid}>
-  <input
-    type="search"
-    bind:value
-    placeholder="Enter a topic name"
-    name="topic-input"
-  />
-  <label
-    class="invalid-label"
-    style:visibility={isValid ? "hidden" : "visible"}
-    for="topic-input">Invalid topic name</label
-  >
-  {#if isValid && value?.length}
-    <button
-      class="btn primary"
-      on:click={() => goto(`/edit/${value.trim()}`)}
-      transition:scale={{ duration: 100 }}>Create</button
-    >
-  {/if}
+<!-- (optional) TODO add conditional invalid class -->
+<div>
+  <!-- TODO make this input controlled -->
+  <input type="search" placeholder="Enter a topic name" name="topic-input" />
+  <!-- TODO conditionally render this label when input is invalid -->
+  <label class="invalid-label" for="topic-input">Invalid topic name</label>
+  <!-- TODO 
+    * conditionally render this button when input is valid 
+    * show a console log when clicked
+    * (optional) add transition
+  -->
+  <button class="btn primary">Create</button>
 </div>
 
 <style>
