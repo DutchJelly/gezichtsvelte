@@ -2,12 +2,8 @@
   import { onMount } from "svelte";
   import type { load } from "./+page";
   import SvelteMarkdown from "svelte-markdown";
-  import {
-    getDraft,
-    removeDraft,
-    saveDraft,
-  } from "../../../shared/services/drafts";
-  import { saveArticle } from "../../../shared/services/saveArticle";
+  import { getDraft, removeDraft, saveDraft } from "$lib/services/drafts";
+  import { saveArticle } from "$lib/services/saveArticle";
   import { goto } from "$app/navigation";
 
   export let data: Awaited<ReturnType<typeof load>>;

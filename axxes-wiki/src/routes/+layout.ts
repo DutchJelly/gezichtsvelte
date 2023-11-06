@@ -1,4 +1,4 @@
-import { getTopics } from "../shared/services/getTopics";
+import { getTopics } from "$lib/services/getTopics";
 
 export async function load() {
   return {

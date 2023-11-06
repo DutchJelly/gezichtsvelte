@@ -1,4 +1,4 @@
-import { getArticle } from "../../../shared/services/getArticle";
+import { getArticle } from "$lib/services/getArticle";
 
 export async function load({ params }: { params: { topic: string } }) {
   return {

@@ -1,7 +1,3 @@
-<script>
-  import { user } from "../shared/store/user";
-</script>
-
 <svelte:head>
   <title>Home</title>
   <meta name="description" content="Svelte demo app" />

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { getDraft, removeDraft } from "../../../shared/services/drafts";
+  import { getDraft, removeDraft } from "$lib/services/drafts";
   import type { load } from "./+page";
   import SvelteMarkdown from "svelte-markdown";
   export let data: Awaited<ReturnType<typeof load>>;

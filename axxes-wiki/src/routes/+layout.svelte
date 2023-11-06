@@ -1,9 +1,9 @@
 <script lang="ts">
-  import TopicsList from "../shared/components/TopicsList.svelte";
-  import Header from "./Header.svelte";
-  import "../shared/styles/reset.css";
-  import "../shared/styles/globals.scss";
-  import "../shared/styles/typography.scss";
+  import TopicsList from "$lib/components/TopicsList.svelte";
+  import Header from "$lib/components/Header.svelte";
+  import "$lib/styles/reset.css";
+  import "$lib/styles/globals.scss";
+  import "$lib/styles/typography.scss";
   import type { load } from "./+layout";
 
   export let data: Awaited<ReturnType<typeof load>>;
