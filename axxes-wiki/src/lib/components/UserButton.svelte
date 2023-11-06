@@ -1,13 +1,10 @@
-<script lang="ts">
-  let loggedIn: boolean = false;
-
-  function login(): void {
-    loggedIn = !loggedIn;
-  }
+<script>
+  import { user } from "$lib/store/user";
+  import { signin, signout } from "$lib/services/authentication";
 </script>
 
-{#if loggedIn}
-  <button class="btn outline" on:click={login}>Logout</button>
+{#if $user}
+  <button class="btn outline" on:click={signout}>Logout</button>
 {:else}
-  <button class="btn outline" on:click={login}>Login</button>
+  <button class="btn outline" on:click={signin}>Login</button>
 {/if}
