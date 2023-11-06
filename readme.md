@@ -5,10 +5,9 @@ Onderdelen die we aan gaan maken:
 - `layout.svelte`
 - `layout.ts`
 - Add routing for topics and topic creation
-- Article header buttons logic
-- Render article with SvelteMarkdown
-- Article draft handling
-- Article publish handling
+- Article header buttons logic (article view page)
+- Voeg editor toe aan `edit/[topic]/+page.svelte`
+- Article header buttons logic (article edit page)
 - (extra) Prerendering
 
 ## Layout.svelte
@@ -31,25 +30,39 @@ export let data: Awaited<ReturnType<typeof load>>;
 
 Voeg anchor tags toe met de correcte href om te navigeren naar de juiste pagina. Ook bij het aanmaken van een nieuw topic moet er vanuit de ts code genavigeerd worden naar de edit pagina.
 
-## Article headers button logic
+## Article header buttons logic (article view page)
 
 ![](article-view-buttons.png)
+![](article-view-buttons-w-draft.png)
 
-Boven de artikelen (in view modus) staan er een aantal knoppen voor:
+Boven de artikelen (in view modus) staan de volgende knoppen:
 
-- Het switchen tussen de gerenderde en raw markdown modus
-- Het editen van een artikel
+- Het switchen tussen de gerenderde en raw markdown view
+- Het editen van een artikel.
+  - Als de gebruiker al een draft heeft, staat er "edit draft"
+  - Als de gebruiker nog geen draft heeft, staat er "edit"
+- (optioneel) Het verwijderen van een draft als de gebruiker die nog heeft
 
-Boven de artikelen (in edit modus) staan
+## Voeg editor toe aan `edit/[topic]/+page.svelte`
 
-Maak een component dat een prop `topics: string[]` verwacht en deze als lijst weergeeft.
+![](editor.png)
 
-Boven de lijst moet een search field komen, dat een reactive statement triggered die de lijst met topics filtert op basis van een zoekterm. Het toevoegen van een nieuwe topic volgt later.
+Voeg een textarea toe die reageert op het aantal regels in de tekst en die de draft opslaat wanneer de tekst aangepast wordt. Deze moet ook getriggerd worden vanaf het moment dat de gebruiker het artikel in edit modus opent. Maak hiervoor voldoende gebruik van reactive statements.
 
-## NewTopicForm.svelte
+## Article header buttons logic (article edit page)
 
-![](newtopicform.png)
+![](article-edit-buttons.png)
 
-Implementeer `NewTopicForm` zodat de gebruiker een naam kan ingeven voor een nieuw topic. Zodra er een geldige naam ingegeven wordt, wordt de knop weergegeven om deze toe te voegen. Indien de input niet geldig is, wordt er een waarschuwing getoond. Voor de validatie moet er echter gebruik gemaakt worden van het bovenliggende component om niet alle data door te moeten geven. Je kan hiervoor deze prop gebruiken: `export let isValidTopic: (topic: string) => boolean;`.
+Boven de artikelen (in edit modus) staan de volgende knoppen:
 
-Je mag dit component gebruiken in de `TopicList`.
+- Het switchen tussen de gerenderde en raw markdown view
+- Het verwijderen van de draft (functie wordt later geïmplementeerd)
+- Het publiceren van de draft (functie wordt later geïmplementeerd)
+
+## (Optional) Refactor de gedupliceerde 'load' code
+
+Tussen de artikel view en edit pagina's, bestaat er een stuk gedupliceerde load code. Deze zou kunnen worden gerefactord zodat beide pagina's data uit dezelfde load functie gebruiken. _#TeachTheTeachers_
+
+## (Optional) Prerendering
+
+Prerender alle pagina's behalve de artikelen, want die zijn dynamisch.
