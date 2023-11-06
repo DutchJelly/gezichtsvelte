@@ -1,7 +1,7 @@
 <script>
   import { page } from "$app/stores";
   import logo from "$lib/images/axxes-wiki-logo.png";
-  import UserButton from "../shared/components/UserButton.svelte";
+  import UserButton from "$lib/components/UserButton.svelte";
 </script>
 
 <header>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import NewTopicForm from "./NewTopicForm.svelte";
+  import NewTopicForm from "$lib/components/NewTopicForm.svelte";
 
   export let topics: string[] = [];
   let searchInput: string = "";

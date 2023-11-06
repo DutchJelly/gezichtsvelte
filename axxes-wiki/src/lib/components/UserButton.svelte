@@ -1,6 +1,6 @@
 <script>
-  import { user } from "../store/user";
-  import { signin, signout } from "../services/authentication";
+  import { user } from "$lib/store/user";
+  import { signin, signout } from "$lib/services/authentication";
 </script>
 
 {#if $user}

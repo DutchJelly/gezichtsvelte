@@ -19,6 +19,7 @@ export function signout() {
   return supabase.auth.signOut();
 }
 
+//Emits the latest state of the user to the callback.
 export function onUserChange(callback: (user?: User) => any) {
   if (!supabase) return;
   supabase.auth.onAuthStateChange((_, session) => {
