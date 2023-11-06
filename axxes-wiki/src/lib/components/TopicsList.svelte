@@ -32,7 +32,8 @@
   <ul>
     {#each filteredTopics as topic}
       <li>
-        <a href={"/article/" + topic}>{topic}</a>
+        <!-- TODO add correct anchor tags -->
+        {topic}
       </li>
     {/each}
   </ul>

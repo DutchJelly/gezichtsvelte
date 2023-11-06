@@ -28,35 +28,26 @@
       {data.topic}
     </div>
     <div>
-      <button class="btn outline" on:click={() => (sourceView = !sourceView)}>
-        {sourceView ? "view rendered" : "view source"}</button
-      >
-      {#if hasDraft}
-        <button class="btn outline" on:click={() => removeDraft(data.topic)}
-          >delete draft</button
-        >
-        <a
-          href={"/edit/" + data.topic}
-          on:click={() => removeDraft(data.topic)}
-          class="btn primary">edit draft</a
-        >
-      {:else}
-        <a
-          href={"/edit/" + data.topic}
-          on:click={() => removeDraft(data.topic)}
-          class="btn primary">edit</a
-        >
-      {/if}
+      <!-- TODO: add logic to switch between rendered and source views -->
+      <button class="btn outline"> view rendered</button>
+
+      <!-- TODO: conditionally render the right buttons/anchor tags -->
+
+      <!-- TODO: add remove draft logic -->
+      <button class="btn outline">delete draft</button>
+      <!-- TODO: Add edit draft functionality -->
+      <a class="btn primary">edit draft</a>
+      <!-- TODO: Add edit functionality -->
+      <a class="btn primary">edit</a>
     </div>
   </div>
   <section class="typo">
-    {#if sourceView}
-      <pre>
-        {data.article ?? noContent}
-      </pre>
-    {:else}
-      <SvelteMarkdown source={data.article ?? noContent} />
-    {/if}
+    <!-- TODO: render either 
+      * the raw markdown/noContent message 
+      * the markdown with <SvelteMarkdown />
+      ...depending on sourceView
+    -->
+    <pre>NOT IMPLEMENTED</pre>
   </section>
 </div>
 

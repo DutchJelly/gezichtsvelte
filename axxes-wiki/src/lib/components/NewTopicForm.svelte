@@ -21,9 +21,10 @@
     for="topic-input">Invalid topic name</label
   >
   {#if isValid && value?.length}
+    <!-- TODO: onclick should navigate to edit page for article -->
     <button
       class="btn primary"
-      on:click={() => goto(`/edit/${value.trim()}`)}
+      on:click={() => console.log(value.trim())}
       transition:scale={{ duration: 100 }}>Create</button
     >
   {/if}
