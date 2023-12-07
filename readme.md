@@ -4,6 +4,8 @@ De oefening van de workshop zijn opgesplitst in 2 delen:
 
 - ex1
 - ex2
+- ex3
+- ex4
 
 Deze zie je terug als branches. Zo begin je met de eerste oefeningen:
 `git checkout ex1`
