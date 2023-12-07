@@ -30,5 +30,5 @@ Boven de lijst moet een search field komen, dat een reactive statement triggered
 ![](newtopicform.png)
 
 Implementeer `NewTopicForm` zodat de gebruiker een naam kan ingeven voor een nieuw topic. Zodra er een geldige naam ingegeven wordt, wordt de knop weergegeven om deze toe te voegen. Indien de input niet geldig is, wordt er een waarschuwing getoond. Voor de validatie moet er echter gebruik gemaakt worden van het bovenliggende component om niet alle data door te moeten geven. Je kan hiervoor deze prop gebruiken: `export let isValidTopic: (topic: string) => boolean;`.
-
+Zodra de gebruiker op de knop klikt mag je voorlopig gewoon een console.log gebruiken
 Je mag dit component gebruiken in de `TopicList`.
