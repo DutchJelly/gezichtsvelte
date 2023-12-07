@@ -28,25 +28,13 @@
       {data.topic}
     </div>
     <div>
-      <!-- TODO: add logic to switch between rendered and source views -->
       <button class="btn outline"> view rendered</button>
-
-      <!-- TODO: conditionally render the right buttons/anchor tags -->
-
-      <!-- TODO: add remove draft logic -->
       <button class="btn outline">delete draft</button>
-      <!-- TODO: Add edit draft functionality -->
       <a class="btn primary">edit draft</a>
-      <!-- TODO: Add edit functionality -->
       <a class="btn primary">edit</a>
     </div>
   </div>
   <section class="typo">
-    <!-- TODO: render either 
-      * the raw markdown/noContent message 
-      * the markdown with <SvelteMarkdown />
-      ...depending on sourceView
-    -->
     <pre>NOT IMPLEMENTED</pre>
   </section>
 </div>

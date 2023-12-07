@@ -27,9 +27,6 @@
     mounted && (article = getDraft(data.topic) ?? data.article ?? undefined);
   }
 
-  // TODO save draft on change and on mount
-  // TODO keep track of line breaks
-
   async function handlePublish() {
     if (!article?.trim()) return;
     const succes = await saveArticle(data.topic, article);
@@ -56,17 +53,12 @@
       {">"} draft
     </div>
     <div>
-      <!-- TODO Implement switching between source view and rendered view -->
       <button class="btn outline">View rendered</button>
-      <!-- TODO Implement deleting the draft -->
       <button class="btn primary">delete draft</button>
-      <!-- TODO Implement publishing the draft -->
       <button class="btn primary">publish draft</button>
     </div>
   </div>
   <section class="typo">
-    <!-- TODO Make this textarea a controlled input for 'article' with enough rows to contain article -->
-    <!-- TODO Conditionally show rendered markdown -->
   </section>
 </div>
 
