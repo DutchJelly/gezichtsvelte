@@ -28,35 +28,14 @@
       {data.topic}
     </div>
     <div>
-      <button class="btn outline" on:click={() => (sourceView = !sourceView)}>
-        {sourceView ? "view rendered" : "view source"}</button
-      >
-      {#if hasDraft}
-        <button class="btn outline" on:click={() => removeDraft(data.topic)}
-          >delete draft</button
-        >
-        <a
-          href={"/edit/" + data.topic}
-          on:click={() => removeDraft(data.topic)}
-          class="btn primary">edit draft</a
-        >
-      {:else}
-        <a
-          href={"/edit/" + data.topic}
-          on:click={() => removeDraft(data.topic)}
-          class="btn primary">edit</a
-        >
-      {/if}
+      <button class="btn outline"> view rendered</button>
+      <button class="btn outline">delete draft</button>
+      <a class="btn primary">edit draft</a>
+      <a class="btn primary">edit</a>
     </div>
   </div>
   <section class="typo">
-    {#if sourceView}
-      <pre>
-        {data.article ?? noContent}
-      </pre>
-    {:else}
-      <SvelteMarkdown source={data.article ?? noContent} />
-    {/if}
+    <pre>NOT IMPLEMENTED</pre>
   </section>
 </div>
 

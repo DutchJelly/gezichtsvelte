@@ -27,10 +27,6 @@
     mounted && (article = getDraft(data.topic) ?? data.article ?? undefined);
   }
 
-  $: mounted && saveDraft(data.topic, article ?? "");
-
-  $: lineBreaks = article?.match(/\n/g)?.length ?? 0;
-
   async function handlePublish() {
     if (!article?.trim()) return;
     const succes = await saveArticle(data.topic, article);
@@ -57,24 +53,12 @@
       {">"} draft
     </div>
     <div>
-      <button class="btn outline" on:click={() => (sourceView = !sourceView)}>
-        {sourceView ? "view rendered" : "view source"}</button
-      >
-      <button class="btn primary" on:click={handleDelete}>delete draft</button>
-      <button class="btn primary" on:click={handlePublish}>publish draft</button
-      >
+      <button class="btn outline">View rendered</button>
+      <button class="btn primary">delete draft</button>
+      <button class="btn primary">publish draft</button>
     </div>
   </div>
   <section class="typo">
-    {#if sourceView}
-      <textarea
-        rows={lineBreaks + 1}
-        on:change={(e) => (article = e.currentTarget.value)}
-        value={article ?? ""}
-      />
-    {:else}
-      <SvelteMarkdown source={!!article ? article : noContent} />
-    {/if}
   </section>
 </div>
 
