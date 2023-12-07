@@ -1,19 +1,13 @@
 <script lang="ts">
-  import TopicsList from "$lib/components/TopicsList.svelte";
   import Header from "$lib/components/Header.svelte";
   import "$lib/styles/reset.css";
   import "$lib/styles/globals.scss";
   import "$lib/styles/typography.scss";
-
-  const data: { topics: string[] } = { topics: ["React", "Vue"] };
 </script>
 
 <div class="app">
   <Header />
   <div class="content container">
-    <aside>
-      <TopicsList topics={data.topics} />
-    </aside>
     <main>
       <section class="typo">
         <h1>About this Wiki</h1>

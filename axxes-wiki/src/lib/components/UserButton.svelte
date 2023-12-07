@@ -1,6 +1,14 @@
-<script>
-  //TODO add imports to login, logout and get user state
+<script lang="ts">
+    let loggedIn: boolean = false;
+
+    function login(): void {
+        loggedIn = !loggedIn;
+    }
 </script>
 
-<!-- TODO add logic to show correct button -->
-<button class="btn outline">TODO</button>
+<!-- TODO implement click event -->
+{#if loggedIn}
+    <button class="btn outline">Logout</button>
+{:else}
+    <button class="btn outline">Login</button>
+{/if}
