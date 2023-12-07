@@ -42,8 +42,8 @@
     </div>
   </div>
   <section class="typo">
-    <!-- TODO: render either 
-      * the raw markdown/noContent message 
+    <!-- TODO: render either
+      * the raw markdown/noContent message
       * the markdown with <SvelteMarkdown />
       ...depending on sourceView
     -->
