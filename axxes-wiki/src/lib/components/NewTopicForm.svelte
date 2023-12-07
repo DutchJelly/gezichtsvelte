@@ -23,7 +23,7 @@
   {#if isValid && value?.length}
     <button
       class="btn primary"
-      on:click={() => goto(`/edit/${value.trim()}`)}
+      on:click={() => console.log('TODO navigate')}
       transition:scale={{ duration: 100 }}>Create</button
     >
   {/if}
