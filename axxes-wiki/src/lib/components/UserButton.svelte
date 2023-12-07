@@ -1,10 +1,10 @@
 <script lang="ts">
+  //TODO add imports to login, logout and get user state to replace the old function and variable
   let loggedIn: boolean = false;
 
   function login(): void {
     loggedIn = !loggedIn;
   }
-  //TODO add imports to login, logout and get user state to replace the old function and variable
 </script>
 
 <!-- TODO replace loggedIn with a store variable and call correct function in on:click -->
